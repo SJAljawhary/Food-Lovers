@@ -10,11 +10,9 @@ let tableBodyEl = document.createElement('tbody');
 divEl.appendChild(tableBodyEl);
 
 
-
-
-
 let foodLovers = [];
 let foodImage = ['shawarma.jpg','burger.jpg','pizza.jpg'];
+
 
 function Food(customerName,foodType,img,price){
     this.customerName = customerName;
@@ -23,8 +21,6 @@ function Food(customerName,foodType,img,price){
     this.price = price;
 
 foodLovers.push(this);
-settingItems();
-render();
 
 }
 
@@ -43,27 +39,27 @@ function random(min,max){
 
        let customerName = event.target.customerName.value;
        let foodType = event.target.foodType.value;
-       let img ;
-       if(foodType === 'shawarma'){
-           img = 'img/' + foodImage[0];
-       }else if (foodType === 'burger'){
-         img = 'img/' + foodImage[1];
-       }else if(foodType === 'pizza'){
-           img = 'img/' + foodImage[2];
- 
-       }
-       let price = random(20,50);
-
-       new Food(customerName,foodType,foodImage[img],price);
-
+       let image ;
+     
+        if (foodType == 'shawarma')
+        image = foodImage[0];
+        if(foodType == 'burger' )
+        image =foodImage[1];
+        if(foodType === 'pizza' )
+        image =foodImage[2];
       
-      
+        let price = random(20,50);
 
-       }
-       render();
-    
         
-       tableHead = ['Order Image','Order Details']
+       new Food(customerName,foodType,image,price);
+
+      
+       render();
+       settingItems();
+
+       }
+       
+       let tableHead = ['Order Image','Order Details']
 
        function tableHeader(){
         
@@ -95,8 +91,7 @@ function random(min,max){
 
                 let imgEl = document.createElement('img');
                 tableData1.appendChild(imgEl);
-
-                imgEl.src='img/' + foodImage[i] ;
+                imgEl.setAttribute('src',foodLovers[i].img);
 
 
             let tableData2 = document.createElement('td');
@@ -104,23 +99,29 @@ function random(min,max){
 
             let pEl1 = document.createElement('p');
             tableData2.appendChild(pEl1);
-            pEl1.textContent = `${foodLovers[i].customerName}`
+            pEl1.textContent = 'Customer Name : ' + `${foodLovers[i].customerName}`
 
             let pEl2 = document.createElement('p');
             tableData2.appendChild(pEl2);
-            pEl2.textContent = `${foodLovers[i].foodType}`
+            pEl2.textContent = 'Food Type : ' + `${foodLovers[i].foodType}`
 
 
             let pEl3 = document.createElement('p');
             tableData2.appendChild(pEl3);
-            pEl3.textContent = `${foodLovers[i].price}`
+            pEl3.textContent ='Food Price : ' + `${foodLovers[i].price}`
 
-                
+
+            let pEl4 = document.createElement('p');
+            tableData2.appendChild(pEl4);
+            pEl4.textContent = 'X';
+        
+        
+            pEl4.setAttribute('id', foodLovers[i].customerName);
+            pEl4.addEventListener('click',removeItem);
+
             }
 
-
            }
-
 
           function settingItems(){
 
@@ -139,7 +140,42 @@ function random(min,max){
               }
               render();
           }
+
+
+          function removeItem(event){
+
+            let removeItem = event.target.id;
+
+                
+            for( let i = 0 ; i < foodLovers.length ; i++ ){
+            if(foodLovers[i].customerName === removeItem){
+                foodLovers.splice(i,1);
+            }
+            }
+
+            
+            settingItems();
+            render();
+            
+            }
+            
+
+            btnDelete.addEventListener('click',clearAll);
+
+            function clearAll(){
+
+                document.getElementById('table').innerHTML = "";
+
+        }
+       
         gettingItems();
+
+
+
+                
+
+            
+
     
 
 

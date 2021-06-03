@@ -4,34 +4,115 @@
     box-sizing: 0;
 }
 
+
 body{
     background-image: url(../img/background.jpg);
     font-family: 'Fredoka One', cursive;;
+    background-repeat: no-repeat;
+    background-size: 100%;
+   
 }
 h1{
     color:red;
     background-color:  rgba(255, 229, 72, 255);
     text-align: center;
-    height: 30px;
-    padding: 10px;
+    height: 60px;
+    padding: 20px;
+    font-size:30px;
+   
 
 }
-#food{
+#foodForm{
     background-color:  rgba(255, 229, 72, 255);
     margin-top: 30px;
     width:300px;
     padding: 30px;
     float:left;
+    border-radius: 20px;
+    margin-left: 50px;
 }
+tbody{
+    background-color:wheat;
+    margin-left: 600px;
+    
+}
+
 footer{
+    background-color: rgba(255, 229, 72, 255);
+    height: 30px;
+    padding: 20px;
+    margin-top: 450px;
+    text-align: center;
+    
+}
+table ,tr ,th ,td{
+    border: 2px solid red;
+    width: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: wheat;
+    margin-left: 600px;
+    text-align: center;
+   
+   
+}
+
+img{
+    width:90px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+}
+#table{
+    margin-left: 600px;
+    margin-top: 30px;
+    background-color: rgba(255, 229, 72, 255);
+
+}
+
+input{
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+    margin :20px;
+}
+select{
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+    margin :20px;
+
+}
+#submit,#btnDelete{
     background-color: red;
 }
-table,th,td{
-    float: right;
-    border: solid red 2px;
-    margin-right: 200px;
+label{
+    color: red;
+    margin-left: 70px;
+    display: block;
 }
-img{
-    width:70px;
-    height: 70px;
+#logo{
+    float: left;
+    margin-top: 5px;
+
 }
+p{
+   
+   display: block;
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
